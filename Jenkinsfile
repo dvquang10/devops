@@ -3,7 +3,7 @@ pipeline {
     registry = 'dvquang/devops-cert'
     registryCredential = 'dvquang'
     image = ''
-    tagNum = sh(script: "echo `date +'%Y%m%d_%Hh%m'`", returnStdout: true).trim()
+    date = sh(script: "echo `date +'%Y%m%d'`", returnStdout: true).trim()
     dockerFile = 'Dockerfile'
    }
     
@@ -19,7 +19,7 @@ pipeline {
            steps {
                script {
                    //image = docker.build('$registry:$tagNum', '-f $dockerFile .')
-                   image = docker.build(registry + ':$tagNum', '-f $dockerFile .')
+                   image = docker.build(registry + ':$date' + '_$BUILD_NUMBER', '-f $dockerFile .')
                }
            }
           
