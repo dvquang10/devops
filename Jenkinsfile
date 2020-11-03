@@ -31,8 +31,7 @@ pipeline {
        stage('Push image to Dockerhub') {
            steps {
                script {
-                   echo "Ignore"
-                    withDockerRegistry(credentialsId: '$registryCredential') {
+                       withDockerRegistry(credentialsId: '$registryCredential') {
                        image.push()
                     }
                }
