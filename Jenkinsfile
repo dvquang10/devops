@@ -1,7 +1,6 @@
 pipeline {
    environment {
        registry = 'dvquang/devops-cert'             //   https://hub.docker.com/repository/docker/dvquang/devops-cert
-       registryCredential = 'jenkins-dockerhub'     //   Credential Jenkins with Dockerhub
        image = ''
        dockerFile = 'Dockerfile'                   //    Name of Dockerfile   
    }
@@ -30,7 +29,7 @@ pipeline {
        stage('Push image to Dockerhub') {
            steps {
                script {
-                       withDockerRegistry(credentialsId: '$registryCredential') {
+                       withDockerRegistry(credentialsId: 'jenkins-dockerhub') {    
                        image.push()
                     }
                }
