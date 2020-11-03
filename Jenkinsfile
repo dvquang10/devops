@@ -19,7 +19,7 @@ pipeline {
            steps {
                script {
                    //image = docker.build('$registry:$tagNum', '-f $dockerFile .')
-                   image = docker.build(registry + ':$date' + '_$BUILD_NUMBER', '-f $dockerFile .')
+                   image = docker.build(registry + ':$date_$BUILD_NUMBER', '-f $dockerFile .')
                }
            }
           
