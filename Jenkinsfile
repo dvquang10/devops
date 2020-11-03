@@ -13,7 +13,7 @@ pipeline {
            steps {
                git (url: 'https://github.com/dvquang10/devops.git', branch: 'master')
                sh "git show -s --format=%B"
-               echo "Current SHA1: `git rev-parse HEAD`"
+               sh "git rev-parse HEAD"
            }
        }
       
