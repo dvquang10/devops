@@ -1,2 +1,2 @@
-FROM nginx:1.18.0-alphite
+FROM nginx:1.19.0-alphite
 ADD index.html /usr/share/nginx/html
